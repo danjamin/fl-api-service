@@ -1,0 +1,32 @@
+{
+  "name": "api-service",
+  "version": "0.1.0",
+  "description": "Generic API service using promises",
+  "main": "dist/cjs/main.js",
+  "scripts": {
+    "start": "broccoli serve",
+    "build": "rm -Rf dist && broccoli build dist",
+    "test": "jshint lib test/lib && bower install && npm run-script build && karma start --single-run"
+  },
+  "keywords": [
+    "API",
+    "ajax",
+    "XHR",
+    "promise"
+  ],
+  "author": "danjamin <e051ba3be@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "broccoli": "^0.16.3",
+    "broccoli-cli": "^1.0.0",
+    "broccoli-dist-es6-module": "^0.2.1",
+    "jshint": "^2.8.0",
+    "karma": "^0.12.36",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-qunit": "^0.1.4",
+    "qunitjs": "^1.18.0"
+  },
+  "dependencies": {
+    "rsvp": "^3.0.18"
+  }
+}

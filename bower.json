@@ -1,0 +1,34 @@
+{
+  "name": "api-service",
+  "version": "0.1.0",
+  "authors": [
+    "danjamin <e051ba3be@gmail.com>"
+  ],
+  "description": "Generic API service using promises",
+  "main": "dist/main.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "API",
+    "ajax",
+    "XHR",
+    "promise"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "rsvp": "~3.0.18"
+  },
+  "devDependencies": {
+    "sinon": "http://sinonjs.org/releases/sinon-1.15.0.js"
+  }
+}

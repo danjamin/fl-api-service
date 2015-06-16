@@ -45,6 +45,6 @@ $ npm run-script build
 
 ### todo
 
-[ ] Add more unit tests
-[ ] Bring in flow
-[ ] Setup travis CI
+- [ ] Add more unit tests
+- [ ] Bring in flow
+- [ ] Setup travis CI

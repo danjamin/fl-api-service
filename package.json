@@ -1,5 +1,5 @@
 {
-  "name": "api-service",
+  "name": "fl-api-service",
   "version": "0.1.0",
   "description": "Generic API service using promises",
   "main": "dist/cjs/main.js",

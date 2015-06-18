@@ -4,22 +4,25 @@
 
 ### install
 
-via bower:
+Note: this is still in development and not registered to **npm** or **bower** yet.
+      So keep this in mind and install via the Git URL for now.
+
+via [bower](http://bower.io):
 
 ```sh
-$ bower install fl-api-service
+$ bower install https://github.com/danjamin/fl-api-service.git#master
 ```
 
-OR via npm:
+OR via [npm](http://npmjs.com):
 
 ```sh
-$ npm install fl-api-service
+$ npm install https://github.com/danjamin/fl-api-service.git#master
 ```
 
 
 ## DEVELOP
 
-### install
+### install dependencies
 
 ```sh
 $ npm install

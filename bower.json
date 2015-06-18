@@ -5,7 +5,7 @@
     "danjamin <e051ba3be@gmail.com>"
   ],
   "description": "Generic API service using promises",
-  "main": "dist/main.js",
+  "main": "dist/amd/main.js",
   "moduleType": [
     "amd",
     "globals",

@@ -1,6 +1,10 @@
 {
   "name": "fl-api-service",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danjamin/fl-api-service.git"
+  },
   "description": "Generic API service using promises",
   "main": "dist/cjs/main.js",
   "scripts": {

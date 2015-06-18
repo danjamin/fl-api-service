@@ -4,6 +4,7 @@
   "authors": [
     "danjamin <e051ba3be@gmail.com>"
   ],
+  "homepage": "https://github.com/danjamin/fl-api-service",
   "description": "Generic API service using promises",
   "main": "dist/amd/main.js",
   "moduleType": [
@@ -23,7 +24,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "Brocfile.js",
+    "karma.conf.js",
+    "package.json",
+    "lib"
   ],
   "dependencies": {
     "rsvp": "~3.0.18"

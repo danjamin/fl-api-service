@@ -27,6 +27,7 @@
     "tests",
     "Brocfile.js",
     "karma.conf.js",
+    "system.conf.js",
     "package.json",
     "lib"
   ],

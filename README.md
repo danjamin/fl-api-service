@@ -51,4 +51,4 @@ $ npm run-script build
 
 - [ ] Add more unit tests
 - [ ] Bring in flow
-- [ ] Setup travis CI
+- [x] Setup travis CI

@@ -1,4 +1,4 @@
-# fl-api-service
+# fl-api-service [![Build Status](https://travis-ci.org/danjamin/fl-api-service.svg)](https://travis-ci.org/danjamin/fl-api-service)
 
 ## USE
 

@@ -26,15 +26,16 @@ $ npm install https://github.com/danjamin/fl-api-service.git#0.1.0
 
 ```sh
 $ npm install
+$ bower install
 ```
 
-### running
+### linting
 
 ```sh
-$ npm start
+$ npm run lint
 ```
 
-### linting and testing
+### testing
 
 ```sh
 $ npm test

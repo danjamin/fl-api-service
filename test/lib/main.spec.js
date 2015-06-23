@@ -1,144 +1,162 @@
-/* global fl, module, test, asyncTest, start, ok, equal, sinon, JSON */
+/* global describe, it, expect, beforeEach, afterEach, sinon, JSON */
+import {GET, POST, PUT, DELETE, PATCH,
+  resolve, reject} from 'lib/main.js';
 
-var xhr;
-var requests;
+describe('fl-api-service', function() {
+  var xhr,
+    requests;
 
-module('fl-api-service', {
-  beforeEach: function () {
+  beforeEach(function () {
     xhr = sinon.useFakeXMLHttpRequest();
     requests = [];
     xhr.onCreate = function (req) {
       requests.push(req);
     };
-  },
-  afterEach: function () {
+  });
+
+  afterEach(function () {
     xhr.restore();
-  }
-});
-
-test('APIService is defined', function() {
-  ok(fl.APIService, 'fl.APIService is defined');
-});
-
-test('GET is defined', function() {
-  ok(fl.APIService.GET, 'fl.APIService.GET is defined');
-});
-
-test('GET works', function() {
-  fl.APIService.GET('/foo').then(sinon.spy());
-
-  equal(requests.length, 1);
-  equal(requests[0].url, '/foo');
-  equal(requests[0].method, 'GET');
-  equal(
-    JSON.stringify(requests[0].requestHeaders),
-    JSON.stringify({
-      Accept: 'application/json',
-      'Content-Type': 'text/plain;charset=utf-8'
-    })
-  );
-  equal(requests[0].requestBody, undefined);
-});
-
-test('POST is defined', function() {
-  ok(fl.APIService.POST, 'fl.APIService.POST is defined');
-});
-
-test('POST works', function() {
-  fl.APIService.POST('/foo', {foo: 'bar'}).then(sinon.spy());
-
-  equal(requests.length, 1);
-  equal(requests[0].url, '/foo');
-  equal(requests[0].method, 'POST');
-  equal(
-    JSON.stringify(requests[0].requestHeaders),
-    JSON.stringify({
-      Accept: 'application/json',
-      'Content-Type': 'application/json;charset=utf-8'
-    })
-  );
-  equal(requests[0].requestBody, JSON.stringify({foo: 'bar'}));
-});
-
-test('PUT is defined', function() {
-  ok(fl.APIService.POST, 'fl.APIService.PUT is defined');
-});
-
-test('PUT works', function() {
-  fl.APIService.PUT('/foo', {foo: 'bar'}).then(sinon.spy());
-
-  equal(requests.length, 1);
-  equal(requests[0].url, '/foo');
-  equal(requests[0].method, 'PUT');
-  equal(
-    JSON.stringify(requests[0].requestHeaders),
-    JSON.stringify({
-      Accept: 'application/json',
-      'Content-Type': 'application/json;charset=utf-8'
-    })
-  );
-  equal(requests[0].requestBody, JSON.stringify({foo: 'bar'}));
-});
-
-test('DELETE is defined', function() {
-  ok(fl.APIService.DELETE, 'fl.APIService.DELETE is defined');
-});
-
-test('DELETE works', function() {
-  fl.APIService.DELETE('/foo').then(sinon.spy());
-
-  equal(requests.length, 1);
-  equal(requests[0].url, '/foo');
-  equal(requests[0].method, 'DELETE');
-  equal(
-    JSON.stringify(requests[0].requestHeaders),
-    JSON.stringify({
-      Accept: 'application/json',
-      'Content-Type': 'text/plain;charset=utf-8'
-    })
-  );
-  equal(requests[0].requestBody, undefined);
-});
-
-test('PATCH is defined', function() {
-  ok(fl.APIService.PATCH, 'fl.APIService.PATCH is defined');
-});
-
-test('PATCH works', function() {
-  fl.APIService.PATCH('/foo', {foo: 'bar'}).then(sinon.spy());
-
-  equal(requests.length, 1);
-  equal(requests[0].url, '/foo');
-  equal(requests[0].method, 'PATCH');
-  equal(
-    JSON.stringify(requests[0].requestHeaders),
-    JSON.stringify({
-      Accept: 'application/json',
-      'Content-Type': 'application/json;charset=utf-8'
-    })
-  );
-  equal(requests[0].requestBody, JSON.stringify({foo: 'bar'}));
-});
-
-
-test('resolve is defined', function() {
-  ok(fl.APIService.resolve, 'fl.APIService.resolve is defined');
-});
-
-asyncTest('resolve works', function() {
-  fl.APIService.resolve({foo: 'bar'}).then(function(result) {
-    start();
-    equal(result.foo, 'bar');
   });
-});
 
-test('reject is defined', function() {
-  ok(fl.APIService.reject, 'fl.APIService.reject is defined');
-});
+  describe('GET', function() {
+    it('should be defined', function() {
+      expect(GET).to.be.a('function');
+    });
 
-asyncTest('reject works', function() {
-  fl.APIService.reject('because')['catch'](function(reason) {
-    start();
-    equal(reason, 'because');
+    it('should fire a GET request', function() {
+      GET('/foo').then(sinon.spy());
+
+      expect(requests.length).to.equal(1);
+      expect(requests[0].url).to.equal('/foo');
+      expect(requests[0].method).to.equal('GET');
+      expect(
+        JSON.stringify(requests[0].requestHeaders)
+      ).to.equal(
+        JSON.stringify({
+          Accept: 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8'
+        })
+      );
+      expect(requests[0].requestBody).to.equal(null);
+    });
   });
+
+  describe('POST', function() {
+    it('should be defined', function() {
+      expect(POST).to.be.a('function');
+    });
+
+    it('should fire a POST request', function() {
+      POST('/foo', {foo: 'bar'}).then(sinon.spy());
+
+      expect(requests.length).to.equal(1);
+      expect(requests[0].url).to.equal('/foo');
+      expect(requests[0].method).to.equal('POST');
+      expect(
+        JSON.stringify(requests[0].requestHeaders)
+      ).to.equal(
+        JSON.stringify({
+          Accept: 'application/json',
+          'Content-Type': 'application/json;charset=utf-8'
+        })
+      );
+      expect(requests[0].requestBody).to.equal(JSON.stringify({foo: 'bar'}));
+    });
+  });
+
+  describe('PUT', function() {
+    it('should be defined', function() {
+      expect(PUT).to.be.a('function');
+    });
+
+    it('should fire a PUT request', function() {
+      PUT('/foo', {foo: 'bar'}).then(sinon.spy());
+
+      expect(requests.length).to.equal(1);
+      expect(requests[0].url).to.equal('/foo');
+      expect(requests[0].method).to.equal('PUT');
+      expect(
+        JSON.stringify(requests[0].requestHeaders)
+      ).to.equal(
+        JSON.stringify({
+          Accept: 'application/json',
+          'Content-Type': 'application/json;charset=utf-8'
+        })
+      );
+      expect(requests[0].requestBody).to.equal(JSON.stringify({foo: 'bar'}));
+    });
+  });
+
+  describe('DELETE', function() {
+    it('should be defined', function() {
+      expect(DELETE).to.be.a('function');
+    });
+
+    it('should fire a DELETE request', function() {
+      DELETE('/foo').then(sinon.spy());
+
+      expect(requests.length).to.equal(1);
+      expect(requests[0].url).to.equal('/foo');
+      expect(requests[0].method).to.equal('DELETE');
+      expect(
+        JSON.stringify(requests[0].requestHeaders)
+      ).to.equal(
+        JSON.stringify({
+          Accept: 'application/json',
+          'Content-Type': 'text/plain;charset=utf-8'
+        })
+      );
+      expect(requests[0].requestBody).to.equal(undefined);
+    });
+  });
+
+  describe('PATCH', function() {
+    it('should be defined', function() {
+      expect(PATCH).to.be.a('function');
+    });
+
+    it('should fire a PATCH request', function() {
+      PATCH('/foo', {foo: 'bar'}).then(sinon.spy());
+
+      expect(requests.length).to.equal(1);
+      expect(requests[0].url).to.equal('/foo');
+      expect(requests[0].method).to.equal('PATCH');
+      expect(
+        JSON.stringify(requests[0].requestHeaders)
+      ).to.equal(
+        JSON.stringify({
+          Accept: 'application/json',
+          'Content-Type': 'application/json;charset=utf-8'
+        })
+      );
+      expect(requests[0].requestBody).to.equal(JSON.stringify({foo: 'bar'}));
+    });
+  });
+
+  describe('resolve', function() {
+    it('should be defined', function() {
+      expect(resolve).to.be.a('function');
+    });
+
+    it('should resolve properly', function(done) {
+      resolve({foo: 'bar'}).then(function(result) {
+        expect(result.foo).to.equal('bar');
+        done();
+      });
+    });
+  });
+
+  describe('reject', function() {
+    it('should be defined', function() {
+      expect(reject).to.be.a('function');
+    });
+
+    it('should reject properly', function(done) {
+      reject('because')['catch'](function(reason) {
+        expect(reason).to.equal('because');
+        done();
+      });
+    });
+  });
+
 });

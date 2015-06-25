@@ -1,17 +1,32 @@
-var dist = require('broccoli-dist-es6-module');
+var ES6Modules = require('broccoli-es6modules'),
+  Funnel = require('broccoli-funnel');
 
-module.exports = dist('lib', {
-  // the entry script, and module that becomes the global
-  main: 'main',
+var moduleName = 'FLAPIService',
+  fileName = 'fl-api-service';
 
-  // will become window.ic.ajax with the exports from `main`
-  global: 'fl.APIService',
+var tree = 'lib';
 
-  // the prefix for named-amd modules
-  packageName: 'fl-api-service',
-
-  // shim rsvp
-  shim: {
-    'rsvp': 'RSVP'
+tree = new ES6Modules(tree, {
+  format: 'umd',
+  bundleOptions: {
+    entry: 'main.js',
+    name: moduleName
+  },
+  esperantoOptions: {
+    strict: true
   }
 });
+
+tree = new Funnel(tree, {
+  destDir: '',
+
+  getDestinationPath: function(relativePath) {
+    if (relativePath === moduleName + '.js') {
+      return fileName + '.js';
+    }
+
+    return relativePath;
+  }
+});
+
+module.exports = tree;

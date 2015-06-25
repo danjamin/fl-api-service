@@ -28,8 +28,7 @@
     "Brocfile.js",
     "karma.conf.js",
     "system.conf.js",
-    "package.json",
-    "lib"
+    "package.json"
   ],
   "dependencies": {
     "rsvp": "~3.0.18"

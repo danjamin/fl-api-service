@@ -6,7 +6,7 @@
   ],
   "homepage": "https://github.com/danjamin/fl-api-service",
   "description": "Generic API service using promises",
-  "main": "dist/amd/main.js",
+  "main": "dist/fl-api-service.js",
   "moduleType": [
     "amd",
     "globals",

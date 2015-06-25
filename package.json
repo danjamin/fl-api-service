@@ -6,7 +6,7 @@
     "url": "git+https://github.com/danjamin/fl-api-service.git"
   },
   "description": "Generic API service using promises",
-  "main": "dist/cjs/main.js",
+  "main": "dist/fl-api-service.js",
   "scripts": {
     "build": "rm -Rf dist && broccoli build dist",
     "lint": "jshint lib test/lib",

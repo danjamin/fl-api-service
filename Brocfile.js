@@ -1,31 +1,15 @@
-var ES6Modules = require('broccoli-es6modules'),
-  Funnel = require('broccoli-funnel');
-
-var moduleName = 'FLAPIService',
-  fileName = 'fl-api-service';
+var ES6Modules = require('broccoli-es6modules');
 
 var tree = 'lib';
 
 tree = new ES6Modules(tree, {
-  format: 'umd',
+  format: 'cjs',
   bundleOptions: {
     entry: 'main.js',
-    name: moduleName
+    name: 'fl-api-service'
   },
   esperantoOptions: {
     strict: true
-  }
-});
-
-tree = new Funnel(tree, {
-  destDir: '',
-
-  getDestinationPath: function(relativePath) {
-    if (relativePath === moduleName + '.js') {
-      return fileName + '.js';
-    }
-
-    return relativePath;
   }
 });
 

@@ -18,6 +18,11 @@ Configure your API endpoint
 ```js
 import {config} from 'fl-api-service';
 
+// useful for isomorphism
+// no need to call clientside (defaults to '')
+config.setDomain('localhost:8080');
+
+// the path to the api on the domain
 config.setEndpoint('/api-path');
 ```
 

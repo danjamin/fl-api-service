@@ -1,6 +1,4 @@
-bower_components
 node_modules
 npm-debug.log
 tmp
-_transpiled
 *.swp

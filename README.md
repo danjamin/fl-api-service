@@ -65,7 +65,7 @@ You can also directly use `resolve` and `reject` -- if you need to
 ### install dependencies
 
 ```sh
-$ npm install -g jshint mocha babel broccoli-cli
+$ npm install -g jshint mocha babel
 ```
 
 ```sh
@@ -84,29 +84,14 @@ $ npm run lint
 $ npm test
 ```
 
-### ongoing testing
-
-```sh
-$ ./scripts/transpile watch
-```
-
-then in a separate shell (each time):
-
-```sh
-$ ./scripts/test
-```
-
 optionally you can filter the tests:
 
 ```sh
 $ ./scripts/test fl-api-service
 ```
 
-### building
+### publishing
 
-```sh
-$ npm run build
-```
+For now:
 
 update **package.json** version, tag semver, and push to origin
-

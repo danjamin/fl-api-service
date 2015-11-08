@@ -57,10 +57,14 @@ You can also directly use `resolve` and `reject` -- if you need to
 
 ## DEVELOP
 
+### pre-reqs
+
+Install node packed with npm >=2.0 and <3.0
+
 ### install dependencies
 
 ```sh
-$ npm install -g jshint mocha babel broccoli-cli
+$ npm install -g jshint@2.8.0 mocha@2.3.3 babel@5.8.29 broccoli-cli@1.0.0
 ```
 
 ```sh
